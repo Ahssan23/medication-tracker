@@ -1,0 +1,30 @@
+.app-container {
+  text-align: center;
+  padding: 20px;
+  min-height:100vh;
+}
+.auth-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:75vh;
+  padding:20px;
+}
+.auth-card{
+  width:340px;
+  background:#0f0f0f;
+  padding:28px;
+  border-radius:12px;
+  box-shadow:0 8px 30px rgba(255,215,0,0.08);
+  border:1px solid rgba(255,215,0,0.06);
+}
+.auth-card h2{margin:0 0 12px 0;color:#FFD700}
+.auth-card input{
+  width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,215,0,0.12);background:transparent;color:#FFD700
+}
+.auth-card button{width:100%;padding:10px;margin-top:12px;border-radius:8px;background:linear-gradient(90deg,#ffd54f,#f4c542);border:none;color:#000;font-weight:700;cursor:pointer}
+.auth-links{display:flex;flex-direction:column;margin-top:10px;gap:6px}
+.home-container{padding:40px;color:#fff}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:#0f0f0f;border-bottom:1px solid rgba(255,215,0,0.04)}
+.navbar .logo{display:flex;align-items:center;gap:8px;font-weight:700;color:#FFD700}
+.navbar .links a{margin-left:12px}
