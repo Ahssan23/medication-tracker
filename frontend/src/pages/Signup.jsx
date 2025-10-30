@@ -14,7 +14,7 @@ const Signup = () => {
     setLoading(true)
 
     try {
-      const response = await fetch(`${process.env.VITE_BACKEND_LINK}/api/auth/signup`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_LINK}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
