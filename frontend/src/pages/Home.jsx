@@ -56,7 +56,7 @@ const subscribeForPush = async () => {
     const reg = await navigator.serviceWorker.register('/sw.js');
 
     // get VAPID public key from backend
-    const vapidRes = await fetch(`${process.env.VITE_BACKEND_LINK}/api/subscribe/vapid`);
+    const vapidRes = await fetch(`${import.meta.env.VITE_BACKEND_LINK}/api/subscribe/vapid`);
     const { publicKey } = await vapidRes.json();
 
     const subscription = await reg.pushManager.subscribe({
@@ -66,7 +66,7 @@ const subscribeForPush = async () => {
 
     // send subscription to backend (it expects Authorization header)
     const token = localStorage.getItem('token'); // ensure token exists
-    const save = await fetch(`${process.env.VITE_BACKEND_LINK}/api/subscribe`, {
+    const save = await fetch(`${import.meta.env.VITE_BACKEND_LINK}/api/subscribe`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const subscribeForPush = async () => {
     if (!storedUser) return alert("User not logged in");
 
     const user = JSON.parse(storedUser);
-    const response = await fetch(`${process.env.VITE_BACKEND_LINK}/api/medicines/add`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_LINK}/api/medicines/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId: user._id, ...medicineForm }),
@@ -155,7 +155,7 @@ const subscribeForPush = async () => {
   const handleDeleteMedicine = async (id) => {
     if (!window.confirm("Are you sure you want to delete this medicine?")) return;
 
-    const res = await fetch(`${process.env.VITE_BACKEND_LINK}/api/medicines/delete/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_LINK}/api/medicines/delete/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {
@@ -180,7 +180,7 @@ const subscribeForPush = async () => {
   const handleUpdateMedicine = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `${process.env.VITE_BACKEND_LINK}/api/medicines/update/${editingMedicine._id}`,
+      `${import.meta.env.VITE_BACKEND_LINK}/api/medicines/update/${editingMedicine._id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
